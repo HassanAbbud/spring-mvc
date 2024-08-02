@@ -6,11 +6,8 @@
     <title th:text="${title}">Document</title>
 </head>
 <body>
-    <ul>
-        <li th:text="${message}"></li>
-        <li th:text="${user.name}"></li>
-        <li th:text="${user.lastname}"></li>
-        <li th:if="${user.email == null}" th:text="'No email provided'"></li>
-    </ul>
+    <h1 th:text="${title}"></h1>
+
+    <div th:if="${users.isEmpty()}" th:text="'There are no users'"></div>
 </body>
 </html>

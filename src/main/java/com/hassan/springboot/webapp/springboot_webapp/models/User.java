@@ -2,14 +2,16 @@ package com.hassan.springboot.webapp.springboot_webapp.models;
 
 public class User {
 
+    //Attributes
+    private String name;
+    private String lastname;
+    
+    //Constructor
     public User(String name, String lastname) {
         this.name = name;
         this.lastname = lastname;
     }
-    
-    private String name;
-    private String lastname;
-    
+    //Getters / Setters
     public String getName() {
         return name;
     }

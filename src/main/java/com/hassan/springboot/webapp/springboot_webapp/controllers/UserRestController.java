@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hassan.springboot.webapp.springboot_webapp.models.User;
+import com.hassan.springboot.webapp.springboot_webapp.models.dto.UserDto;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +17,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api")
 public class UserRestController {
 
-    @GetMapping()
-    public Map<String, Object> details() {
+    @GetMapping(path = "/details")
+    public UserDto details() {
+        
+        UserDto userDto = new UserDto();
+        User user = new User("Hassan", "Abbud");
+
+        userDto.setTitle("Spring Boot app");
+        userDto.setUser(user);
+        
+        return userDto;
+    }
+
+    @GetMapping(path = "/details-map")
+    public Map<String, Object> detailsMap() {
         
         User user = new User("Hassan", "Abbud");
         Map<String, Object> body = new HashMap<>();

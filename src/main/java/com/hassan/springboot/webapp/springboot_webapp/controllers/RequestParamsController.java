@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hassan.springboot.webapp.springboot_webapp.models.dto.ParamDto;
+
+import jakarta.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -28,6 +31,23 @@ public class RequestParamsController {
         ParamDto param = new ParamDto();
         param.setMessage(message);
         param.setCode(code);
+
+        return param;
+    }
+    
+    @GetMapping("/request")
+    public ParamDto request(HttpServletRequest request ) {
+
+        ParamDto param = new ParamDto();
+        Integer code = 10;
+        try {
+            code = Integer.parseInt(request.getParameter("code"));
+
+        } catch (NumberFormatException e) {
+            // TODO: handle exception
+        }
+        param.setCode(code);
+        param.setMessage(request.getParameter("message"));
 
         return param;
     }

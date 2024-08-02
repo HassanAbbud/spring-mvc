@@ -1,6 +1,9 @@
 package com.hassan.springboot.webapp.springboot_webapp.controllers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -25,8 +28,23 @@ public class UserRestController {
 
         userDto.setTitle("Spring Boot app");
         userDto.setUser(user);
-        
+
         return userDto;
+    }
+
+    public List<User> list(){
+        User user1 = new User("Jose", "Loya");
+        User user2 = new User("Andres", "Arzaga");
+        User user3 = new User("Jhon", "Doe");
+
+
+        List<User> users = Arrays.asList(user1, user2, user3);
+        // List<User> users = new ArrayList<>();
+        // users.add(user1);
+        // users.add(user2);
+        // users.add(user3);
+
+        return users;
     }
 
     @GetMapping(path = "/details-map")

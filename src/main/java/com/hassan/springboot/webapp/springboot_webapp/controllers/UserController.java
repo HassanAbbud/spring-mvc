@@ -28,7 +28,7 @@ public class UserController {
 
         List<User> users = Arrays.asList(
             new User("Jose", "Loya"),
-            new User("Santi", "Perez"),
+            new User("Santi", "Perez", "Santi@hotmail.com"),
             new User("Andres", "Manuel")
         );
 

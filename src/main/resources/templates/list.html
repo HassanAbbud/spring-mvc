@@ -9,5 +9,25 @@
     <h1 th:text="${title}"></h1>
 
     <div th:if="${users.isEmpty()}" th:text="'There are no users'"></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>lastname</th>
+                <th>email</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="user: ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.lastname}"></td>
+                <td th:if="${user.email}" th:text="${user.email}"></td>
+                <td th:unless="${user.email}" th:text="${'No email provided'}"></td>
+            </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>

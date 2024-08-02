@@ -17,24 +17,24 @@ public class UserController {
 
     @GetMapping("/details")
     public String details (Model model){
-        User user = new User("Hassan", "Abbud");
+        //User user = new User("Hassan", "Abbud");
         model.addAttribute( "title", "Spring Boot app");
         model.addAttribute( "message", "Hello World");
-        model.addAttribute( "user", user );
+        //model.addAttribute( "user", user );
         return "details";
     }
 
-    @GetMapping("list")
+    @GetMapping("/list")
     public String list(ModelMap model) {
 
-        List<User> users = Arrays.asList(
-            new User("Jose", "Loya"),
-            new User("Santi", "Perez", "Santi@hotmail.com"),
-            new User("Andres", "Manuel")
-        );
+        // List<User> users = Arrays.asList(
+        //     new User("Jose", "Loya"),
+        //     new User("Santi", "Perez", "Santi@hotmail.com"),
+        //     new User("Andres", "Manuel")
+        // );
 
         model.addAttribute("title", "User list");
-        model.addAttribute("users", users);
+        //model.addAttribute("users", users);
         return "list";
     }
     

@@ -7,16 +7,21 @@ public class User {
     private String lastname;
     private String email;
     
+    //Constructor
+    public User() {
+    }
+    
     public User(String name, String lastname, String email) {
         this(name, lastname);
         this.email = email;
     }
 
-    //Constructor
     public User(String name, String lastname) {
         this.name = name;
         this.lastname = lastname;
     }
+    
+
     //Getters / Setters
     public String getName() {
         return name;

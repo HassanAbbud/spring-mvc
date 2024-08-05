@@ -38,6 +38,15 @@ public class PathVariableController {
     @Value("${config.specialCharacters}")
     private String specialCharacters;
 
+    @Value("#{${config.valuesMap}}")
+    private Map<String,Object> valuesMap;
+    
+    @Value("#{${config.valuesMap}.price}")
+    private String valuesMapPrice;
+    
+    @Value("#{${config.valuesMap}.product}")
+    private String valuesMapProduct;
+
     @GetMapping("/baz/{message}")
     public ParamDto baz(@PathVariable String message) {
         //Query example: http://localhost:8080/api/var/baz/My%20message
@@ -72,6 +81,9 @@ public class PathVariableController {
         json.put("message", message);
         json.put("specialCharacters", specialCharacters);
         json.put("listUpperCase", listUpper);
+        json.put("items", valuesMap);
+        json.put("itemsPrice", valuesMapPrice);
+        json.put("itemsProduct", valuesMapProduct);
         return json;
     }
     

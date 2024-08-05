@@ -7,6 +7,7 @@ import com.hassan.springboot.webapp.springboot_webapp.models.User;
 import com.hassan.springboot.webapp.springboot_webapp.models.dto.ParamDto;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -31,8 +32,8 @@ public class PathVariableController {
     @Value("${config.listOfValues}")
     private String[] list;
     
-    // @Value("#{${config.listOfValues.toUpperCase()}}")
-    // private String listUpper;
+    @Value("#{'${config.listOfValues}'.toUpperCase()}")
+    private List<String> listUpper;
 
     @Value("${config.specialCharacters}")
     private String specialCharacters;
@@ -70,7 +71,7 @@ public class PathVariableController {
         json.put("list", list);
         json.put("message", message);
         json.put("specialCharacters", specialCharacters);
-        //json.put("listUpperCase", listUpper);
+        json.put("listUpperCase", listUpper);
         return json;
     }
     

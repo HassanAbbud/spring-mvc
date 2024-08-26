@@ -43,8 +43,8 @@ public class RequestParamsController {
         try {
             code = Integer.parseInt(request.getParameter("code"));
 
-        } catch (NumberFormatException e) {
-            // TODO: handle exception
+        } catch (NumberFormatException e) {    
+            System.err.println("Invalid number format for 'code': " + request.getParameter("code"));
         }
         param.setCode(code);
         param.setMessage(request.getParameter("message"));

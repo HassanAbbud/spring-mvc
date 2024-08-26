@@ -78,7 +78,7 @@ public class PathVariableController {
         return user;
     }
     
-    @GetMapping("values")
+    @GetMapping("/values")
     public Map<String, Object> getConfigValues() {
         Map<String, Object> json = new HashMap<>() ;
         json.put("code", code);
